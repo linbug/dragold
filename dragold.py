@@ -31,14 +31,23 @@ class Game_object(object):
 
 player = Game_object(0,0)
 player.lives = 3
+player.coins = 0
 
 class Dragon(Game_object):
 	def fire(self):
 		player.lives -=1
 		return "The dragon spews fire and you are reduced to ash. -1 life"
 
+class Coin(Game_object):
+	def enwealth(self):
+		player.coins += 1
+		return "You got 1 coin richer! You have %d coin(s)"%player.coins
 
 dragon = Dragon(3,4)
 print dragon.fire()
-print player.lives
-
+print dragon.row
+coin = Coin(1,2)
+print coin.row
+print player.coins
+print coin.enwealth()
+print player.coins
