@@ -29,9 +29,14 @@ class Game_object(object):
 		self.column = column
 
 
-player = Game_object(0,0)
-player.lives = 3
-player.coins = 0
+class Player(Game_object):
+	def __init__(self,row,column):
+	        super( Player, self ).__init__(row,column)
+	        self.lives = 3
+	        self.coins = 0
+# player = Game_object(0,0)
+# player.lives = 3
+# player.coins = 0
 
 class Dragon(Game_object):
 	def fire(self):
@@ -43,6 +48,7 @@ class Coin(Game_object):
 		player.coins += 1
 		return "You got 1 coin richer! You have %d coin(s)"%player.coins
 
+player = Player(0,0)
 dragon = Dragon(3,4)
 print dragon.fire()
 print dragon.row
